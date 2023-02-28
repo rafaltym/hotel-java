@@ -37,7 +37,7 @@ public abstract class RoomAbstract {
 
     @Override
     public String toString() {
-        return "RoomAbstract{" +
+        return getClass().getSimpleName() +"{" +
                 "shower=" + shower +
                 ", toilet=" + toilet +
                 ", TV=" + TV +
@@ -52,7 +52,7 @@ public abstract class RoomAbstract {
                 ", numberOfGuests=" + numberOfGuests +
                 ", price=" + price +
                 ", roomNumber=" + roomNumber +
-                '}';
+                "}\n";
     }
 
     public void setShower(boolean shower) {

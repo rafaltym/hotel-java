@@ -36,11 +36,12 @@ public class RoomAdd extends Repository{
                 fileWriter.write(mapper.writeValueAsString(roomList));
 
                 fileWriter.close();
+                System.out.println("Added successfully!");
             } catch (IOException e) {
                 e.printStackTrace();
             }
         } else {
-            System.out.println("There is already the same room in the repository");
+            System.out.println("There is already the room with the same number in the repository");
         }
     }
 

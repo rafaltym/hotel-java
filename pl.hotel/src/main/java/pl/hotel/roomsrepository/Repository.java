@@ -14,9 +14,9 @@ import java.util.List;
 public class Repository {
 
 
-    protected boolean isRoomInRepository(List roomList, RoomAbstract hotelRoom) {
+    protected boolean isRoomInRepository(List <RoomAbstract> roomList, RoomAbstract hotelRoom) {
         for (int i = 0; i < roomList.size(); i++) {
-            if (roomList.get(i).toString().equals(hotelRoom.toString())) {
+            if (roomList.get(i).getRoomNumber() == hotelRoom.getRoomNumber()) {
                 return true;
             }
         }
@@ -24,7 +24,7 @@ public class Repository {
     }
     ObjectMapper objectMapper = new ObjectMapper();
 
-    protected List readHotelRoomRepository() {
+    public List readHotelRoomRepository() {
 
         List<HotelRoom> hotelRoomList = new ArrayList<>();
 
@@ -39,7 +39,7 @@ public class Repository {
             return hotelRoomList;
         }
     }
-        protected List readHolidayCottageRepository () {
+        public List readHolidayCottageRepository () {
             List<HolidayCottage> holidayCottageList = new ArrayList<>();
 
             try {
