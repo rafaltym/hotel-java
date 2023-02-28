@@ -1,38 +1,36 @@
 package pl.hotel.roomsrepository;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import pl.hotel.rooms.HolidayCottage;
 import pl.hotel.rooms.HotelRoom;
 import pl.hotel.rooms.RoomAbstract;
 
-import java.io.*;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.*;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Repository {
 
 
-    protected boolean isRoomInRepository(List roomList, HotelRoom hotelRoom) {
+    protected boolean isRoomInRepository(List roomList, RoomAbstract hotelRoom) {
         for (int i = 0; i < roomList.size(); i++) {
-            if ( roomList.get(i).toString().equals(hotelRoom.toString())) {
+            if (roomList.get(i).toString().equals(hotelRoom.toString())) {
                 return true;
             }
         }
-        System.out.println("debug msg false");
         return false;
     }
+    ObjectMapper objectMapper = new ObjectMapper();
 
+    protected List readHotelRoomRepository() {
 
-    protected List readRoomRepository() {
-        ObjectMapper objectMapper = new ObjectMapper();
-        List<HotelRoom> hotelRoomList = new ArrayList<> ();
+        List<HotelRoom> hotelRoomList = new ArrayList<>();
 
         try {
-            File file = new File ("src/main/resources/RoomsRepository.json");
-            hotelRoomList = objectMapper.readValue(file , new TypeReference<List<HotelRoom>>() {});
+            File file = new File("src/main/resources/RoomsRepository.json");
+            hotelRoomList = objectMapper.readValue(file, new TypeReference<List<HotelRoom>>() {});
             return hotelRoomList;
 
         } catch (IOException e) {
@@ -41,6 +39,21 @@ public class Repository {
             return hotelRoomList;
         }
     }
+        protected List readHolidayCottageRepository () {
+            List<HolidayCottage> holidayCottageList = new ArrayList<>();
+
+            try {
+                File file = new File("src/main/resources/HolidayCottageRepository.json");
+                holidayCottageList = objectMapper.readValue(file, new TypeReference<List<HolidayCottage>>() {
+                });
+                return holidayCottageList;
+
+            } catch (IOException e) {
+                e.printStackTrace();
+                System.out.println("Something wrong with HolidayCottageRepository.json");
+                return holidayCottageList;
+            }
+        }
 
 
 

@@ -6,9 +6,6 @@ public class HotelRoom extends RoomAbstract {
     public HotelRoom() {
     }
 
-    public HotelRoom(boolean dishes, boolean kitchenette, boolean towels, boolean terrace, boolean grill, boolean airConditioning, int numberOfRooms, int numberOfGuests, int price, int roomNumber) {
-        super(dishes, kitchenette, towels, terrace, grill, airConditioning, numberOfRooms, numberOfGuests, price, roomNumber);
-    }
 
     public HotelRoom(boolean dishes, boolean kitchenette, boolean terrace, int numberOfRooms, int numberOfGuests, int price, int roomNumber) {
         super(dishes, kitchenette, true, terrace, false, false, numberOfRooms, numberOfGuests, price, roomNumber);

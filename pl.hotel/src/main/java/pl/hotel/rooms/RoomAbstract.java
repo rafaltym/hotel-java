@@ -19,6 +19,8 @@ public abstract class RoomAbstract {
     public RoomAbstract() {
     }
 
+
+
     public RoomAbstract(boolean dishes, boolean kitchenette, boolean towels, boolean terrace, boolean grill,
                         boolean airConditioning, int numberOfRooms, int numberOfGuests, int price, int roomNumber) {
         this.dishes = dishes;
