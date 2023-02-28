@@ -2,13 +2,7 @@ package pl.hotel;
 
 import pl.hotel.rooms.HolidayCottage;
 import pl.hotel.rooms.HotelRoom;
-import pl.hotel.rooms.RoomAbstract;
-import pl.hotel.roomsrepository.Repository;
 import pl.hotel.roomsrepository.RoomAdd;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 public class Main {
     public static void main(String[] args) {

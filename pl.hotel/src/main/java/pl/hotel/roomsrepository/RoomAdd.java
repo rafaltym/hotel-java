@@ -1,7 +1,6 @@
 package pl.hotel.roomsrepository;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import pl.hotel.rooms.HolidayCottage;
 import pl.hotel.rooms.HotelRoom;
 import pl.hotel.rooms.RoomAbstract;
 
