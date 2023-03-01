@@ -12,7 +12,7 @@ import java.util.List;
 public class RoomAdd extends Repository{
     public void roomAdd(RoomAbstract room){
 
-        List<RoomAbstract> roomList = new ArrayList<>();
+        List<RoomAbstract> roomList;
         if(room.getClass() == HotelRoom.class) {
             roomList= readHotelRoomRepository();
         } else {
@@ -22,11 +22,11 @@ public class RoomAdd extends Repository{
 
 
 //is being done when there is no similar room in repository
-        if(!isRoomInRepository(roomList, room)) {
+        if(!isRoomInRepository(roomList, room.getRoomNumber())) {
             try {
                 FileWriter fileWriter;
                 if(room.getClass() == HotelRoom.class){
-                    fileWriter = new FileWriter("src/main/resources/RoomsRepository.json", false);
+                    fileWriter = new FileWriter("src/main/resources/HotelRoomsRepository.json", false);
                 } else {
                     fileWriter = new FileWriter("src/main/resources/HolidayCottageRepository.json", false);
                 }

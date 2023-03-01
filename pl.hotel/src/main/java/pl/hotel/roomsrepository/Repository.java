@@ -14,9 +14,9 @@ import java.util.List;
 public class Repository {
 
 
-    protected boolean isRoomInRepository(List <RoomAbstract> roomList, RoomAbstract hotelRoom) {
-        for (int i = 0; i < roomList.size(); i++) {
-            if (roomList.get(i).getRoomNumber() == hotelRoom.getRoomNumber()) {
+    protected boolean isRoomInRepository(List <RoomAbstract> roomList, int roomNumber) {
+        for (RoomAbstract roomAbstract : roomList) {
+            if (roomAbstract.getRoomNumber() == roomNumber) {
                 return true;
             }
         }
@@ -29,13 +29,19 @@ public class Repository {
         List<HotelRoom> hotelRoomList = new ArrayList<>();
 
         try {
-            File file = new File("src/main/resources/RoomsRepository.json");
+            File file = new File("src/main/resources/HotelRoomsRepository.json");
             hotelRoomList = objectMapper.readValue(file, new TypeReference<List<HotelRoom>>() {});
             return hotelRoomList;
 
         } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("Something wrong with RoomsRepository.json");
+            if (e.getClass().getSimpleName().toString().equals("MismatchedInputException")) {
+                System.out.println("Brak pokoi hotelowych w bazie");
+
+            } else {
+                e.printStackTrace();
+                System.out.println("Something wrong with HotelRoomsRepository.json");
+            }
+
             return hotelRoomList;
         }
     }
@@ -49,8 +55,14 @@ public class Repository {
                 return holidayCottageList;
 
             } catch (IOException e) {
-                e.printStackTrace();
-                System.out.println("Something wrong with HolidayCottageRepository.json");
+                if (e.getClass().getSimpleName().toString().equals("MismatchedInputException")) {
+                    System.out.println("Brak domków letniskowych w bazie");
+                } else {
+                    e.printStackTrace();
+                    System.out.println("Something wrong with HolidayCottageRepository.json");
+                }
+
+
                 return holidayCottageList;
             }
         }
