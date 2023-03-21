@@ -19,6 +19,8 @@ public abstract class RoomAbstract {
     public RoomAbstract() {
     }
 
+
+
     public RoomAbstract(boolean dishes, boolean kitchenette, boolean towels, boolean terrace, boolean grill,
                         boolean airConditioning, int numberOfRooms, int numberOfGuests, int price, int roomNumber) {
         this.dishes = dishes;
@@ -35,7 +37,7 @@ public abstract class RoomAbstract {
 
     @Override
     public String toString() {
-        return "RoomAbstract{" +
+        return getClass().getSimpleName() +" : " +
                 "shower=" + shower +
                 ", toilet=" + toilet +
                 ", TV=" + TV +
@@ -50,7 +52,7 @@ public abstract class RoomAbstract {
                 ", numberOfGuests=" + numberOfGuests +
                 ", price=" + price +
                 ", roomNumber=" + roomNumber +
-                '}';
+                "\n";
     }
 
     public void setShower(boolean shower) {
