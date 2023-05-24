@@ -10,17 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RoomAdd extends Repository{
+    List<RoomAbstract> roomList;
     public void roomAdd(RoomAbstract room){
-
-        List<RoomAbstract> roomList;
-        if(room.getClass() == HotelRoom.class) {
-            roomList= readHotelRoomRepository();
-        } else {
-            roomList= readHolidayCottageRepository();
-        }
-
-
-
+        roomList = roomListMethod(room);
 //is being done when there is no similar room in repository
         if(!isRoomInRepository(roomList, room.getRoomNumber())) {
             try {
@@ -41,7 +33,15 @@ public class RoomAdd extends Repository{
                 e.printStackTrace();
             }
         } else {
-            System.out.println("There is already the room with the same number in the repository");
+            System.out.println("W bazie danych istnieje już pokój o takim numerze.");
+        }
+    }
+
+    private List<RoomAbstract> roomListMethod(RoomAbstract room) {
+        if(room.getClass() == HotelRoom.class) {
+            return readHotelRoomRepository();
+        } else {
+            return readHolidayCottageRepository();
         }
     }
 

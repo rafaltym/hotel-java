@@ -38,7 +38,11 @@ public abstract class RoomAbstract {
     @Override
     public String toString() {
         return getClass().getSimpleName() +" : " +
-                "shower=" + shower +
+                " roomNumber=" + roomNumber +
+                ", price=" + price +
+                ", numberOfRooms=" + numberOfRooms +
+                ", numberOfGuests=" + numberOfGuests +
+                ", shower=" + shower +
                 ", toilet=" + toilet +
                 ", TV=" + TV +
                 ", parking=" + parking +
@@ -48,10 +52,6 @@ public abstract class RoomAbstract {
                 ", terrace=" + terrace +
                 ", grill=" + grill +
                 ", airConditioning=" + airConditioning +
-                ", numberOfRooms=" + numberOfRooms +
-                ", numberOfGuests=" + numberOfGuests +
-                ", price=" + price +
-                ", roomNumber=" + roomNumber +
                 "\n";
     }
 

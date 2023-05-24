@@ -9,14 +9,12 @@ import java.io.IOException;
 import java.util.List;
 
 public class RoomDelete extends Repository{
+
+    List<RoomAbstract> roomList;
     public void roomDelete (String whichRoom, int roomNumber) {
-        List<RoomAbstract> roomList;
+
         int roomToDelete = -1;
-        if (whichRoom.equals("HotelRoom")) {
-            roomList = readHotelRoomRepository();
-        } else {
-            roomList = readHolidayCottageRepository();
-        }
+        roomList = roomListMethod(whichRoom);
 
         if(isRoomInRepository(roomList, roomNumber)) {
             try {
@@ -47,6 +45,15 @@ public class RoomDelete extends Repository{
             System.out.println("Pokój o takim numerze nie istnieje!");
         }
 
+    }
+
+    private List<RoomAbstract> roomListMethod(String whichRoom) {
+
+        if (whichRoom.equals("HotelRoom")) {
+            return readHotelRoomRepository();
+        } else {
+            return readHolidayCottageRepository();
+        }
     }
 
 

@@ -64,34 +64,35 @@ public class Menu {
     }
 
     private void addHotelRoom() {
+        System.out.println("Nr pokoju: ");
+        int roomNumber = sc.nextInt();
+        System.out.println("Cena: ");
+        int price = sc.nextInt();
+        System.out.println("Liczba pokoi: ");
+        int numberOfRooms = sc.nextInt();
+        System.out.println("Liczba miejsc: ");
+        int numberOfGuests = sc.nextInt();
         System.out.println("Czy są naczynia w pokoju? (true/false)");
         boolean dishes = Boolean.valueOf(sc.next());
         System.out.println("Czy jest aneks kuchenny? (true/false)");
         boolean kitchenette = Boolean.valueOf(sc.next());
         System.out.println("Czy jest taras? (true/false)");
         boolean terrace = Boolean.valueOf(sc.next());
-        System.out.println("Liczba pokoi: ");
-        int numberOfRooms = sc.nextInt();
-        System.out.println("Liczba miejsc: ");
-        int numberOfGuests = sc.nextInt();
-        System.out.println("Cena: ");
-        int price = sc.nextInt();
-        System.out.println("Nr pokoju: ");
-        int roomNumber = sc.nextInt();
+
         roomAdd.roomAdd(new HotelRoom(dishes, kitchenette, terrace, numberOfRooms, numberOfGuests, price, roomNumber));
     }
 
     private void addHolidayCottage() {
-        System.out.println("Czy jest klimatyzacja? (true/false)");
-        boolean airConditioning = Boolean.valueOf(sc.next());
+        System.out.println("Nr domku: ");
+        int roomNumber = sc.nextInt();
+        System.out.println("Cena: ");
+        int price = sc.nextInt();
         System.out.println("Liczba pokoi: ");
         int numberOfRooms = sc.nextInt();
         System.out.println("Liczba miejsc: ");
         int numberOfGuests = sc.nextInt();
-        System.out.println("Cena: ");
-        int price = sc.nextInt();
-        System.out.println("Nr pokoju: ");
-        int roomNumber = sc.nextInt();
+        System.out.println("Czy jest klimatyzacja? (true/false)");
+        boolean airConditioning = Boolean.valueOf(sc.next());
         roomAdd.roomAdd(new HolidayCottage(airConditioning,numberOfRooms, numberOfGuests, price, roomNumber));
     }
 
