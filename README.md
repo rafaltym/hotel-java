@@ -1,4 +1,6 @@
 # hotel
-Working on it...
+-List of hotel rooms and holiday cottages
+-Possibility to add, delete and make changes in the list
+-Json files as a repository
+-user interface in terminal
 
-In the long term it is going to be web platform to manage rooms booking in a hotel.
